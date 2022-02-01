@@ -1,8 +1,8 @@
 <?php
     $faqs = [
         "Come state implementando la recente decisione della Corte di giustizia dell'Unione europea (CGUE) relativa al diritto all'oblio?" =>
-        [
-                 'response' => [
+            [
+                 'response' =>  [
                                     'paragraph' => "La recente decisione della Corte di giustizia dell'Unione europea ha profonde conseguenze per i motori di ricerca in Europa. 
                                     La Corte ha stabilito che alcuni utenti hanno il diritto di chiedere ai motori di ricerca come Google di rimuovere risultati 
                                     relativi a chiavi di ricerca che includono il proprio nome. Per poter essere rimossi, i risultati visualizzati devono essere inadeguati, 
@@ -33,7 +33,43 @@
                                     che sono state soggette a una rimozione."
                                 ],         
 
-        ], 
+                            ],
+            "Come fa Google a proteggere la mia privacy e a tenere le mie informazioni al sicuro?" =>
+            [
+                'response' => [
+                    'paragraph' => "Sappiamo che la sicurezza e la privacy sono importanti per te e lo sono anche per noi. Per noi è imperativo offrire un'elevata sicurezza e assicurarti che le tue 
+                    informazioni sono al sicuro e accessibili quando ne hai bisogno."
+                ],
+                [
+                    'paragraph' => "Siamo costantemente al lavoro per garantire un'elevata sicurezza, proteggere la tua privacy e rendere Google ancora più efficace ed efficiente per te. 
+                    Spendiamo centinaia di milioni di dollari ogni anno per la sicurezza e ci avvaliamo di esperti di fama mondiale in materia di sicurezza dei dati per mantenere 
+                    le tue informazioni al sicuro. Abbiamo inoltre sviluppato strumenti per la sicurezza e la privacy di facile utilizzo come Google Dashboard, la verifica in due passaggi 
+                    e Impostazioni annunci. Così, per quanto riguarda le informazioni che condividi con Google, hai il massimo controllo."
+                ],
+                [
+                    'paragraph'=> "Puoi leggere ulteriori informazioni sulla sicurezza online, incluso come proteggere te e la tua famiglia online, nel Centro Google per la sicurezza online."
+                ],
+                [
+                    'paragraph' => "Scopri quali misure adottiamo per garantire protezione e sicurezza alle tue informazioni personali, lasciando a te il controllo."
+                ]
+            ],
+            "Perché il mio account è associato a un paese?" => [
+                'response'=> [
+                    'paragraph' => "Il tuo account è associato a un paese (o territorio) nei Termini di servizio per poter stabilire due cose:",
+                    'list' => [
+                       'item' => "La società consociata Google che offre i servizi, tratta le tue informazioni ed è responsabile del rispetto delle leggi sulla privacy vigenti. 
+                        Generalmente Google offre i propri servizi per i consumatori tramite una delle due società seguenti:",
+                        'sublink' => [
+                            
+                        ]
+                    ],
+                    [
+                        'item' => "La versione dei termini che regola il nostro rapporto, che può variare in base alle leggi locali."
+                    ],
+                ],
+
+            ],
+
     ];
 ?>
 
@@ -57,6 +93,13 @@
             echo '<h1>' . $key . '</h1>';
                 foreach($faq as $key => $response){
                     echo '<p>' . $response['paragraph'] . '<br>' . '<br>' . '</p>';
+                    if($response['list']){
+                        echo '<ol>'; 
+                        foreach($response as $key=> $list){
+                            echo '<li>' . $list['item'] . '</li>';
+                        }
+                        echo '</ol>';
+                    }
                 }
          }
         ?>
